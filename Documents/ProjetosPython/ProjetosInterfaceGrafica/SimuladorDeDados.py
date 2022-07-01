@@ -1,8 +1,9 @@
 # Simulador de dados com Interface gráfica
 
 import sys 
-from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QToolTip, QLabel
+from PyQt5.QtWidgets import QApplication, QMainWindow, QPushButton, QToolTip, QLabel, QLineEdit
 from PyQt5 import QtGui
+import random
 
 class Janela (QMainWindow):
     def __init__(self):
@@ -40,10 +41,33 @@ class Janela (QMainWindow):
 
         #Criando "Valor sorteado:"
         valor_sort = QLabel(self)
-        valor_sort.move(180, 300)
+        valor_sort.move(180, 350)
         valor_sort.setText('Valor sorteado: ')
         valor_sort.resize(300, 20)
         valor_sort.setStyleSheet('QLabel {font-size: 14px; color: black; font: bold}')
+
+        #Criando inserir valor minimo
+        self.ins_valor_min = QLineEdit(self)
+        self.ins_valor_min.move(300, 150)
+        self.ins_valor_min.resize(100, 20)
+
+        #Criando Inserir valor máximo
+        self.ins_valor_max = QLineEdit(self)
+        self.ins_valor_max.move(300, 195)
+        self.ins_valor_max.resize(100, 20)
+
+        #Criando botão para gerar numero
+        gerar_numero = QPushButton('Gerar número', self)
+        gerar_numero.move(180, 260)
+        gerar_numero.resize(100, 50)
+        gerar_numero.setStyleSheet('QPushButton {background-color: green; font-size: 20; font: bold; color: white}')
+        gerar_numero.clicked.connect(self.BotaoClicado)
+
+        #Criando exibidor do numero sorteado
+        self.numero_aleatorio = QLabel(self)
+        self.numero_aleatorio.move(220, 420)   
+        self.numero_aleatorio.resize(300,50)
+        self.numero_aleatorio.setStyleSheet('QLabel {font-size: 20px; font: bold}')
 
         self.CarregaJanela()
 
@@ -51,6 +75,13 @@ class Janela (QMainWindow):
         self.setGeometry(self.lado, self.topo, self.largura, self.altura)  
         self.setWindowTitle(self.titulo)
         self.show()
+
+    def BotaoClicado(self):
+        conteudo = self.ins_valor_min.text()
+        conteudo2 = self.ins_valor_max.text()
+        numeroGerado = random.randint(int(conteudo), int(conteudo2))
+        self.numero_aleatorio.setText(f' o numero gerado é: {numeroGerado}')
+
 
 aplicacao = QApplication(sys.argv)
 j = Janela()
