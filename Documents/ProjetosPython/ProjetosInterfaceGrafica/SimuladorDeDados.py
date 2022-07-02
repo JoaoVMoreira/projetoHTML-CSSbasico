@@ -67,7 +67,7 @@ class Janela (QMainWindow):
         self.numero_aleatorio = QLabel(self)
         self.numero_aleatorio.move(220, 420)   
         self.numero_aleatorio.resize(300,50)
-        self.numero_aleatorio.setStyleSheet('QLabel {font-size: 20px; font: bold}')
+        self.numero_aleatorio.setStyleSheet('QLabel {font-size: 40px; font: bold}')
 
         self.CarregaJanela()
 
@@ -80,7 +80,7 @@ class Janela (QMainWindow):
         conteudo = self.ins_valor_min.text()
         conteudo2 = self.ins_valor_max.text()
         numeroGerado = random.randint(int(conteudo), int(conteudo2))
-        self.numero_aleatorio.setText(f' o numero gerado é: {numeroGerado}')
+        self.numero_aleatorio.setText(f'{numeroGerado}')
 
 
 aplicacao = QApplication(sys.argv)
