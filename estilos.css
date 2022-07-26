@@ -1,0 +1,41 @@
+body{
+    background: #4b566a url('medias/fundo.png');
+    font: 16px Arial, Helvetica, sans-serif;
+}
+
+#principal{
+    width: 900px;
+}
+
+#menu{
+    padding: 19px;
+    background-color: #C5C5B2;
+
+}
+
+#conteudo{
+    background-color: white;
+    color: black;
+    padding: 10px;
+}
+
+.titulo1{
+    color: #4b566a;
+}
+
+a {
+    color: #4b566a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#footer{
+    color: black;
+    font-weight: bold;
+    padding: 15px;
+    text-align: center;
+}
+
+.imagens-campanha{
+    border: 10px solid #c3c3ae;
+}
